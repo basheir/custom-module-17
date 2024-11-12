@@ -2,4 +2,7 @@
 <odoo>
     <menuitem id="hospital_menu_root" name="HSM"/>
 
+    <menuitem id="hospital_frontdesk" name="Front desk" parent="hospital_menu_root" />
+    <menuitem id="hospital_patient" name="Patients" parent="hospital_frontdesk" action="action_hospital_patient" />
+
 </odoo>
