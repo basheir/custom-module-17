@@ -8,5 +8,9 @@ class HospitalDoctor(models.Model):
 
     first_name = fields.Char(string="First name", required=True)
     last_name = fields.Char(string="Last name", required=True)
+    gender = fields.Selection([
+        ("male", "Male"),
+        ("female", "Female")
+    ])
     professional_statement = fields.Char(string="Professional statement")
     practicing_from = fields.Date(string="Practicing from")
