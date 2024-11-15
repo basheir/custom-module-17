@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+
+<odoo>
+
+     <record id="view_hospital_all_doctor_tree" model="ir.ui.view">
+            <field name="model">hospital.doctor</field>
+          <field name="priority">19</field>
+            <field name="arch" type="xml">
+                <tree string="Doctors" create="0">
+                    <field name="first_name"/>
+                    <field name="last_name" optional="show"/>
+                    <field name="gender" optional="show"/>
+                    <field name="professional_statement" optional="hide"/>
+                    <field name="practicing_from" optional="hide"/>
+                </tree>
+            </field>
+     </record>
+
+      <record id="view_hospital_all_doctor_form" model="ir.ui.view">
+            <field name="model">hospital.doctor</field>
+            <field name="arch" type="xml">
+                <form string="Doctors">
+                   <sheet>
+                        <group>
+                        <group>
+                            <field name="first_name"/>
+                            <field name="last_name"/>
+                            <field name="gender"/>
+                        </group>
+                        <group>
+                            <field name="professional_statement"/>
+                            <field name="practicing_from"/>
+                        </group>
+                    </group>
+                   </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" groups="base.group_user"/>
+                        <field name="message_ids"/>
+                    </div>
+
+
+                </form>
+            </field>
+     </record>
+
+     <record id="action_hospital_all_doctors" model="ir.actions.act_window">
+            <field name="name">All Doctors</field>
+            <field name="res_model">hospital.doctor</field>
+            <field name="view_mode">tree,form</field>
+          <field name="view_ids" eval="[Command.clear(),
+                          (0,0,{'view_mode':'tree',  'view_id': ref('view_hospital_all_doctor_tree')}),
+                          (0,0,{'view_mode':'form', 'view_id': ref('view_hospital_all_doctor_form')})]"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new Doctor
+                </p>
+            </field>
+        </record>
+</odoo>
