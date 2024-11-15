@@ -6,6 +6,7 @@ class HospitalDoctor(models.Model):
     # _inherit = ["mail.thread"]
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = "Hospital Doctor"
+    _rec_name = "first_name"
 
 
     first_name = fields.Char(string="First name", required=True, tracking=True)

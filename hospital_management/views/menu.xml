@@ -4,6 +4,7 @@
 
     <menuitem id="hospital_frontdesk" name="Front desk" parent="hospital_menu_root" />
     <menuitem id="hospital_patient" name="Patients" parent="hospital_frontdesk" action="action_hospital_patient" />
+    <menuitem id="hospital_appointment" name="Appointments" parent="hospital_frontdesk" action="action_hospital_appointment" />
 
     <menuitem id="hospital_doctors"  name="Hospital Employees" parent="hospital_menu_root" />
     <menuitem id="hospital_doctors_create_doctor" name="Create Doctor" parent="hospital_doctors" action="action_hospital_doctor" />
