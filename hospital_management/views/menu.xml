@@ -5,4 +5,7 @@
     <menuitem id="hospital_frontdesk" name="Front desk" parent="hospital_menu_root" />
     <menuitem id="hospital_patient" name="Patients" parent="hospital_frontdesk" action="action_hospital_patient" />
 
+    <menuitem id="hospital_doctors"  name="Doctors" parent="hospital_menu_root" />
+    <menuitem id="hospital_doctors_list" name="Doctors List" parent="hospital_doctors" action="action_hospital_doctor" />
+
 </odoo>
