@@ -2,13 +2,25 @@
 
 
 <odoo>
+     <record id="view_hospital_doctor_tree" model="ir.ui.view">
+            <field name="model">hospital.doctor</field>
+            <field name="arch" type="xml">
+                <tree string="Doctors">
+<!--                    <field name="sequence" widget="handle"/>-->
+                    <field name="first_name"/>
+                    <field name="last_name"/>
+                    <field name="professional_statement"/>
+                    <field name="practicing_from"/>
+                </tree>
+            </field>
+        </record>
      <record id="action_hospital_doctor" model="ir.actions.act_window">
             <field name="name">Doctor</field>
-            <field name="res_model">hospital.patient</field>
+            <field name="res_model">hospital.doctor</field>
             <field name="view_mode">tree,form</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">
-                    Abuur dhaktar Cusub
+                    Create a new Doctor
                 </p>
             </field>
         </record>
