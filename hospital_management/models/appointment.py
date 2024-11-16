@@ -12,6 +12,13 @@ class HospitalAppointment(models.Model):
     patient_id = fields.Many2one("hospital.patient", "Patient", tracking=True)
     appointment_date = fields.Date(string="Appointment date", tracking=True)
     note = fields.Text(string="Note", tracking=True)
+    state = fields.Selection([
+        ('draft', 'Draft'),
+        ('confirmed', 'Confirmed'),
+        ('ongoing', 'Ongoing'),
+        ('done', 'Done'),
+        ('cancel', 'Cancelled')
+    ], default='draft', tracking=True)
 
     @api.model_create_multi
     def create(self, vals_list):
@@ -21,4 +28,7 @@ class HospitalAppointment(models.Model):
                 vals['reference'] = self.env['ir.sequence'].next_by_code('hospital.appointment')
         return super().create(vals_list)
 
+    def action_confirm(self):
+        for rec in self:
+            rec.state = 'confirmed'
 
