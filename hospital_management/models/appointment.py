@@ -13,7 +13,7 @@ class HospitalAppointment(models.Model):
     appointment_date = fields.Date(string="Appointment date", tracking=True)
     note = fields.Text(string="Note", tracking=True)
 
-    @api._model_create_multi
+    @api.model_create_multi
     def create(self, vals_list):
         print("Odoo mates", vals_list)
         for vals in vals_list:
